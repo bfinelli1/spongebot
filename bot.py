@@ -17,12 +17,14 @@ def sponge(s):
 def spongerand(s):
     return ''.join(c.lower() if random.choice(range(1, 3)) == 1 else c for c in s.upper())
 
+bot = commands.Bot(command_prefix='!')
+
 #print out info on guild and members
 @bot.event
 async def on_ready():
     print(f'{bot.user.name} has connected to Discord!')
 
-    guild = discord.utils.get(client.guilds, name=GUILD)
+    guild = discord.utils.get(bot.guilds, name=GUILD)
     print(
             f'{bot.user.name} is connected to the following guild:\n'
             f'{guild.name}(id: {guild.id})'
